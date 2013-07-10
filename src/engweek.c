@@ -48,9 +48,11 @@ void update_display(PblTm *tick_time) {
   static char daynum_text[]   = "                  ";
 
   int month = tick_time->tm_mon;
-  string_format_time(new_date_text, sizeof(date_text), "%e ", tick_time);
-  strcat(new_date_text, month_names[month]);
-
+  // string_format_time(new_date_text, sizeof(date_text), "%e ", tick_time);
+  // strcat(new_date_text, month_names[month]);
+  string_format_time(date_text, sizeof(date_text), "%B %e", tick_time);
+  
+ 
   // Only update the date/day/week strings when they're changed.
   if (strncmp(new_date_text, date_text, sizeof(date_text)) != 0) {
 	  string_format_time(week_text, sizeof(week_text), "W%V", tick_time);
@@ -60,7 +62,7 @@ void update_display(PblTm *tick_time) {
 	  strcpy(day_text, day_names[dayofweek]);
 	  text_layer_set_text(&text_day_layer, day_text);
 
-	  strncpy(date_text, new_date_text, sizeof(date_text));
+	  // strncpy(date_text, new_date_text, sizeof(date_text));
 	  text_layer_set_text(&text_date_layer, date_text);
 	  
 	  string_format_time(year_text, sizeof(year_text), "%Y-%m-%d", tick_time);
