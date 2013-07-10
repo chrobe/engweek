@@ -49,8 +49,7 @@ void update_display(PblTm *tick_time) {
 
   int month = tick_time->tm_mon;
   string_format_time(new_date_text, sizeof(date_text), "%e ", tick_time);
-  // strcat(new_date_text, month_names[month]);
-  strcat(month_names[month], new_date_text);
+  strcat(new_date_text, month_names[month]);
 
   // Only update the date/day/week strings when they're changed.
   if (strncmp(new_date_text, date_text, sizeof(date_text)) != 0) {
