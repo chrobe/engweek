@@ -17,7 +17,7 @@ TextLayer text_daynum_layer;
 Layer line_layer;
 
 static const char *day_names[] = {
-  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+  "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
 };
 
 static const char *month_names[] = {
@@ -50,7 +50,7 @@ void update_display(PblTm *tick_time) {
   int month = tick_time->tm_mon;
   // string_format_time(new_date_text, sizeof(date_text), "%e ", tick_time);
   // strcat(new_date_text, month_names[month]);
-  string_format_time(date_text, sizeof(date_text), "%B %e", tick_time);
+  string_format_time(date_text, sizeof(date_text), "%b %e", tick_time);
   
  
   // Only update the date/day/week strings when they're changed.
